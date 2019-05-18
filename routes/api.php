@@ -20,12 +20,7 @@ use Illuminate\Http\Request;
 Route::post('register', 'AuthController@register');
 Route::post('login', 'AuthController@login');
 
-//Route::middleware(['auth:api'])->group(function () {
-//    Route::post('books/{book}/ratings', 'RatingController@store');
-//    Route::apiResource('books', 'BookController', ['except' => ['index,show']]);
-//});
-
 Route::group(['middleware' => 'auth:api'], function() {
     Route::post('books/{book}/ratings', 'RatingController@store');
-    Route::apiResource('books', 'BookController', ['except' => ['index,show']]);
+    Route::apiResource('books', 'BookController');
 });

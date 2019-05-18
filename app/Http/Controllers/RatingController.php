@@ -26,6 +26,9 @@ class RatingController extends Controller
             ['rating' => $request->rating]
         );
 
-        return new RatingResource($rating);
+        var_dump($rating);
+        exit;
+
+//        return new RatingResource($rating);
     }
 }
